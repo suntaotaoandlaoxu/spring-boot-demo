@@ -1,0 +1,47 @@
+# Yet Anther Markup Language(.yml/.yaml) ==> json子集
+#springboot配置
+
+# 所有环境公用配置属性
+#actuator配置
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info,configprops,threaddump,caches
+
+#描述应用
+info:
+  author: suntt
+  createDateTime: 2019-08-23 16:17
+  description: simple spring-boot demo
+  emr: stt1116020313@163.com
+spring:
+  profiles:
+    active: dev
+
+
+# ---表示连字符，可将配置分隔
+---
+#profile=x的环境，如开发环境
+
+spring:
+  profiles: dev
+
+---
+#profile=y的环境，如生产环境
+spring:
+  profiles: prod
+server:
+  tomcat:
+    max-threads: 300
+    max-connections: 1000
+
+
+---
+#可以继续分隔下去
+#.
+#.
+#.
